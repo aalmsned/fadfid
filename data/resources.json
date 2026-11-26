@@ -1,0 +1,69 @@
+{
+  "_note": "Verified resource file (P1). The crisis support agent may only output entries from this file. The Safety Officer re-checks every entry monthly; update lastVerified when you do. Harm-to-others templates (P8) never promise secrecy and tell the user what consent to a counsellor means.",
+  "lastVerified": "2026-11-20",
+  "verifiedBy": "TO FILL: name of team member who checked each entry",
+  "resources": [
+    {
+      "id": "emergency",
+      "phone": "999",
+      "nameEn": "Emergency services (police, ambulance)",
+      "nameAr": "خدمات الطوارئ",
+      "hoursEn": "24 hours, every day",
+      "hoursAr": "على مدار الساعة",
+      "allAges": true,
+      "source": "Qatar emergency number"
+    },
+    {
+      "id": "mental_health_helpline",
+      "phone": "16000",
+      "nameEn": "National Mental Health Helpline (Hamad Medical Corporation), press 4 for mental health",
+      "nameAr": "الخط الوطني للدعم النفسي (مؤسسة حمد الطبية)، اضغط 4 للصحة النفسية",
+      "hoursEn": "8am to 6pm, Saturday to Thursday",
+      "hoursAr": "من 8 صباحاً إلى 6 مساءً، من السبت إلى الخميس",
+      "allAges": true,
+      "source": "https://hamad.qa/EN/news/2026/April/Pages/National-Mental-Health-Helpline-marks-six-years-of-supporting-Qatar's-population.aspx"
+    }
+  ],
+  "templates": {
+    "ar": {
+      "tier2": "شكراً إنك قلت لي هذا، أدري إنه مو سهل. أنا هنا معك وما راح أتركك. اللي تحس فيه يستاهل إن أحد مختص يسمعك.",
+      "tier3": "أنا مهتم فيك وسعيد إنك تكلمت. أفكار إنهاء الحياة ثقيلة، وما لازم تشيلها بروحك. أنا باقي معك الحين.",
+      "tier4": "أنا قلق عليك وأبيك تكون بأمان الحين. إذا كنت في خطر الحين، اتصل على 999. أنا باقي معك هنا.",
+      "resourcesIntro": "هذي جهات موثوقة تقدر تتواصل معها:",
+      "encourageHelp": "التكلم مع مختص ممكن يساعد فعلاً، وطلب المساعدة قوة مو ضعف.",
+      "offerCounsellor": "تبي أوصلك الحين بمستشار مختص يكلمك هنا في نفس المحادثة؟ (نعم / لا)",
+      "counsellorAccepted": "تمام، بلغت المستشار وراح ينضم لك هنا. أنا باقي معك لين يوصل.",
+      "counsellorDeclined": "ولا يهمك، القرار لك. أنا باقي هنا معك، ونقدر نتكلم عن اللي تحس فيه. وإذا غيرت رأيك أي وقت، قول لي.",
+      "counsellorAfterHours": "المستشار غير متوفر الحين. إذا كنت في خطر الحين اتصل على 999. أنا باقي معك.",
+      "stayEngaged": "أنا هنا. تقدر تقول لي وش اللي صاير معك الحين؟",
+      "harmIntent": "شكراً إنك قلت لي. واضح إن فيك غضب كبير الحين، وأنا باقي معك وأسمعك. ما أقدر أساعد في أذية أحد، بس أقدر أساعدك تمر من هاللحظة. وش اللي صاير الحين؟ هل أحد في خطر هاللحظة؟ إذا فيه أحد في خطر الحين، اتصل على 999.",
+      "harmImminent": "أنا قلق إن أحد ممكن يتأذى. إذا فيه أحد في خطر الحين، اتصل على 999. تقدر تبتعد عن المكان أو عن الشخص الحين وتاخذ نفس؟ أنا باقي معك هنا.",
+      "harmOngoing": "شكراً إنك قلت لي، وأدري إنه مو سهل. سلامة اللي حولك، خصوصاً الصغار، أهم شي الحين، وفيه مساعدة لك ولهم. إذا فيه أحد في خطر الحين، اتصل على 999. أنا باقي معك.",
+      "harmStay": "أنا هنا. وش اللي تحس فيه الحين؟ وهل أحد في خطر؟",
+      "harmOfferCounsellor": "أبي أوصلك بمستشار مرخص يقدر يساعدك في هذا. إذا وافقت، راح يطلب اسمك وطريقة للتواصل معك، وممكن يضطر يتصرف عشان يحمي أحد من الأذى. تبي أوصلك؟ (نعم / لا)",
+      "harmCounsellorAccepted": "تمام، بلغت المستشار وراح ينضم لك هنا ويطلب اسمك وطريقة للتواصل. أنا باقي معك لين يوصل.",
+      "harmCounsellorDeclined": "القرار لك، وأنا باقي هنا معك. فضفض ما يعرف من أنت، بس ما يقدر يساعد في أذية أحد. إذا صار أحد في خطر، اتصل على 999.",
+      "harmCounsellorAfterHours": "المستشار غير متوفر الحين. إذا فيه أحد في خطر الحين، اتصل على 999. أنا باقي معك."
+    },
+    "en": {
+      "tier2": "Thank you for telling me that. I know it isn't easy. I'm here with you and I'm not going anywhere. What you're feeling deserves to be heard by someone trained to help.",
+      "tier3": "I care about what happens to you, and I'm glad you told me. Thoughts of ending your life are heavy, and you don't have to carry them alone. I'm staying with you right now.",
+      "tier4": "I'm worried about you and I want you to be safe right now. If you are in danger now, please call 999. I'm staying here with you.",
+      "resourcesIntro": "These are trusted places you can reach:",
+      "encourageHelp": "Talking to a professional can really help, and reaching out is a strength, not a weakness.",
+      "offerCounsellor": "Would you like me to connect you now with a trained counsellor who can talk with you here in this chat? (yes / no)",
+      "counsellorAccepted": "Okay, I've let the counsellor know and they will join you here. I'll stay with you until they arrive.",
+      "counsellorDeclined": "That's okay, it's your choice. I'm still here with you, and we can keep talking about how you feel. If you change your mind at any time, just tell me.",
+      "counsellorAfterHours": "A counsellor isn't available right now. If you are in danger now, please call 999. I'm staying with you.",
+      "stayEngaged": "I'm here. Can you tell me what's happening for you right now?",
+      "harmIntent": "Thank you for telling me. It sounds like you're carrying a lot of anger right now, and I'm staying here with you. I can't help with hurting anyone, but I can help you get through this moment. What's happening right now? Is anyone in danger at this moment? If so, please call 999.",
+      "harmImminent": "I'm worried someone could get hurt. If anyone is in danger right now, please call 999. Can you step away from the place or the person for now and take a breath? I'm staying here with you.",
+      "harmOngoing": "Thank you for telling me. I know that isn't easy. The safety of the people around you, especially children, matters most right now, and there is help for you and for them. If anyone is in danger right now, please call 999. I'm staying with you.",
+      "harmStay": "I'm here. What are you feeling right now, and is anyone in danger?",
+      "harmOfferCounsellor": "I'd like to connect you with a licensed counsellor who can help with this. If you agree, they will ask for your name and a way to reach you, and they may need to act to keep someone safe. Do you want that? (yes / no)",
+      "harmCounsellorAccepted": "Okay, I've let the counsellor know. They will join you here and ask for your name and a way to reach you. I'll stay with you until they arrive.",
+      "harmCounsellorDeclined": "That's your choice, and I'm still here with you. Fadfid doesn't know who you are, but it can't help with hurting anyone. If anyone is in danger, please call 999.",
+      "harmCounsellorAfterHours": "A counsellor isn't available right now. If anyone is in danger right now, please call 999. I'm staying with you."
+    }
+  }
+}

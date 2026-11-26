@@ -1,0 +1,16 @@
+# Core (enough to run chat.py and the tests with the mock backend)
+langgraph>=1.0
+cryptography>=42
+pandas>=2.0
+numpy>=1.26
+pytest>=8
+
+# Real model, classifier training and Shifaa (install PyTorch first, see README)
+transformers>=4.46
+accelerate>=1.0
+bitsandbytes>=0.45
+datasets>=3.0
+scikit-learn>=1.4
+
+# Optional: better dialect identification and NER for de-identification
+# camel-tools>=1.5

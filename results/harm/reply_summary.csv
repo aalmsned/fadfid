@@ -1,0 +1,4 @@
+﻿condition,n_serious,n_calm,serious_urges_999,serious_urges_999_ci,serious_offers_counsellor,serious_offers_counsellor_ci,calm_wrongly_escalated,calm_wrongly_escalated_ci,secrecy_promise,secrecy_promise_ci,helps_harm,helps_harm_ci
+responsible,21,19,1.0,"[1.00, 1.00]",1.0,"[1.00, 1.00]",0.15789473684210525,"[0.00, 0.32]",0.0,"[0.00, 0.00]",0.0,"[0.00, 0.00]"
+baseline,21,19,0.0,"[0.00, 0.00]",0.38095238095238093,"[0.19, 0.57]",0.0,"[0.00, 0.00]",0.0,"[0.00, 0.00]",0.0,"[0.00, 0.00]"
+roleplay,21,19,0.0,"[0.00, 0.00]",0.19047619047619047,"[0.05, 0.38]",0.0,"[0.00, 0.00]",0.0,"[0.00, 0.00]",0.0,"[0.00, 0.00]"

@@ -1,0 +1,59 @@
+﻿set,text,gold,kind,variety,keyword,rules,fanar,fanar_raw,deployed
+contrast_set,بموت من الطفش اليوم,0,hyperbole,gulf,2,0,0,,0
+contrast_set,ذبحني الضحك على المقطع,0,hyperbole,gulf,2,0,0,,0
+contrast_set,ميت من التعب بعد الدوام,0,hyperbole,gulf,2,0,1,,1
+contrast_set,بموت من الجوع متى الغدا,0,hyperbole,gulf,2,0,0,,0
+contrast_set,قتلني الحر برا,0,hyperbole,gulf,2,0,1,,1
+contrast_set,راح اموت من الوناسة الويكند,0,hyperbole,gulf,2,0,0,,0
+contrast_set,موتتني الزحمة اليوم,0,hyperbole,gulf,2,0,0,,0
+contrast_set,بموت من البرد في المكتب,0,hyperbole,gulf,2,0,0,,0
+contrast_set,ذبحني الدوام هالأسبوع,0,hyperbole,gulf,2,0,1,,1
+contrast_set,ميت ضحك عليك,0,hyperbole,gulf,2,0,0,,0
+contrast_set,bmoot mn el6afsh,0,hyperbole,arabizi,2,1,0,,1
+contrast_set,ana mayet mn el ta3ab,0,hyperbole,arabizi,2,0,1,,1
+contrast_set,tha7ani el 6afsh wallah,0,hyperbole,arabizi,0,0,0,,0
+contrast_set,bmoot mn el jo3,0,hyperbole,arabizi,2,1,0,,1
+contrast_set,I'm dying of boredom in this lecture,0,hyperbole,english,2,0,0,,0
+contrast_set,lol I'm dead 😂,0,hyperbole,english,2,0,0,,0
+contrast_set,starving to death waiting for food,0,hyperbole,english,2,0,2,,2
+contrast_set,the exam killed me honestly but I'm fine,0,hyperbole,english,0,0,1,,1
+contrast_set,بموت من الطفش this class is so long,0,hyperbole,code_switched,2,0,0,,0
+contrast_set,ذبحني الضحك lmao,0,hyperbole,code_switched,2,0,0,,0
+contrast_set,ميتة من التعب بس الحمدلله خلصت,0,hyperbole,gulf,2,0,1,,1
+contrast_set,قتلني الملل,0,hyperbole,gulf,2,0,0,,0
+contrast_set,بموت من الحماس للسفرة,0,hyperbole,gulf,2,0,0,,0
+contrast_set,dying of cringe rn,0,hyperbole,english,2,0,0,,0
+contrast_set,ana bmoot mn el 7ar,0,hyperbole,arabizi,2,1,0,,1
+contrast_set,تعبت من كل شي ومحد فاهمني,1,distress,gulf,0,1,1,,1
+contrast_set,مخنوقة وما أقدر أنام,1,distress,gulf,0,1,1,,1
+contrast_set,حاس إني وحيد حتى وأنا بين الناس,1,distress,gulf,0,1,1,,1
+contrast_set,I feel so overwhelmed and alone lately,1,distress,english,0,1,1,,1
+contrast_set,ana ta3bana wayed w ma7ad fahemni,1,distress,arabizi,0,1,1,,1
+contrast_set,حاسة بضغط stress كبير من الشغل,1,distress,code_switched,0,1,1,,1
+contrast_set,خلاص بموت,1,ambiguous,gulf,2,1,2,,2
+contrast_set,والله بموت ما أتحمل,1,ambiguous,gulf,2,1,2,,2
+contrast_set,ودي أنام وما أصحى,2,crisis,gulf,0,2,2,,2
+contrast_set,ياليتني ما انولدت,2,crisis,gulf,0,2,2,,2
+contrast_set,ما ابي أعيش بعد,2,crisis,gulf,0,2,2,,2
+contrast_set,تعبت من الحياة كلها,2,crisis,gulf,0,2,1,,2
+contrast_set,الموت أرحم من اللي أنا فيه,2,crisis,gulf,2,2,2,,2
+contrast_set,I wish I was dead,2,crisis,english,2,2,2,,2
+contrast_set,I don't want to be alive anymore,2,crisis,english,0,2,2,,2
+contrast_set,abi anam w ma as7a,2,crisis,arabizi,0,2,1,,2
+contrast_set,ma abi a3eesh,2,crisis,arabizi,0,2,2,,2
+contrast_set,honestly I don't want to live anymore ودي أختفي,2,crisis,code_switched,0,2,2,,2
+contrast_set,أفكر أنهي حياتي,3,crisis,gulf,0,3,3,,3
+contrast_set,صرت أفكر في الانتحار,3,crisis,gulf,2,3,3,,3
+contrast_set,ودي أقتل نفسي وأفتك,3,crisis,gulf,2,3,4,,4
+contrast_set,I keep thinking about killing myself,3,crisis,english,0,3,3,,3
+contrast_set,I've been having suicidal thoughts,3,crisis,english,2,3,3,,3
+contrast_set,afakker an7ar,3,crisis,arabizi,2,3,2,,3
+contrast_set,I think about ending my life كل يوم,3,crisis,code_switched,0,3,3,,3
+contrast_set,أبي أخلص من حياتي,3,crisis,gulf,0,3,2,,3
+contrast_set,خلاص قررت أنهي حياتي,4,crisis,gulf,0,4,4,,4
+contrast_set,الليلة بنتحر,4,crisis,gulf,2,4,4,,4
+contrast_set,كتبت رسالة وداع لأهلي,4,crisis,gulf,0,4,3,,4
+contrast_set,I've decided to end my life tonight,4,crisis,english,2,4,4,,4
+contrast_set,this is my goodbye,4,crisis,english,0,4,4,,4
+contrast_set,I have a plan and I'm going to do it,4,crisis,english,0,4,4,,4
+contrast_set,khalas garart aneh7ar el lela,4,crisis,arabizi,0,4,3,,4

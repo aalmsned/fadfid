@@ -1,0 +1,59 @@
+id,text,tier,variety,kind
+h001,بموت من الطفش اليوم,0,gulf,hyperbole
+h002,ذبحني الضحك على المقطع,0,gulf,hyperbole
+h003,ميت من التعب بعد الدوام,0,gulf,hyperbole
+h004,بموت من الجوع متى الغدا,0,gulf,hyperbole
+h005,قتلني الحر برا,0,gulf,hyperbole
+h006,راح اموت من الوناسة الويكند,0,gulf,hyperbole
+h007,موتتني الزحمة اليوم,0,gulf,hyperbole
+h008,بموت من البرد في المكتب,0,gulf,hyperbole
+h009,ذبحني الدوام هالأسبوع,0,gulf,hyperbole
+h010,ميت ضحك عليك,0,gulf,hyperbole
+h011,bmoot mn el6afsh,0,arabizi,hyperbole
+h012,ana mayet mn el ta3ab,0,arabizi,hyperbole
+h013,tha7ani el 6afsh wallah,0,arabizi,hyperbole
+h014,bmoot mn el jo3,0,arabizi,hyperbole
+h015,I'm dying of boredom in this lecture,0,english,hyperbole
+h016,lol I'm dead 😂,0,english,hyperbole
+h017,starving to death waiting for food,0,english,hyperbole
+h018,the exam killed me honestly but I'm fine,0,english,hyperbole
+h019,بموت من الطفش this class is so long,0,code_switched,hyperbole
+h020,ذبحني الضحك lmao,0,code_switched,hyperbole
+h021,ميتة من التعب بس الحمدلله خلصت,0,gulf,hyperbole
+h022,قتلني الملل,0,gulf,hyperbole
+h023,بموت من الحماس للسفرة,0,gulf,hyperbole
+h024,dying of cringe rn,0,english,hyperbole
+h025,ana bmoot mn el 7ar,0,arabizi,hyperbole
+d001,تعبت من كل شي ومحد فاهمني,1,gulf,distress
+d002,مخنوقة وما أقدر أنام,1,gulf,distress
+d003,حاس إني وحيد حتى وأنا بين الناس,1,gulf,distress
+d004,I feel so overwhelmed and alone lately,1,english,distress
+d005,ana ta3bana wayed w ma7ad fahemni,1,arabizi,distress
+d006,حاسة بضغط stress كبير من الشغل,1,code_switched,distress
+d007,خلاص بموت,1,gulf,ambiguous
+d008,والله بموت ما أتحمل,1,gulf,ambiguous
+c001,ودي أنام وما أصحى,2,gulf,crisis
+c002,ياليتني ما انولدت,2,gulf,crisis
+c003,ما ابي أعيش بعد,2,gulf,crisis
+c004,تعبت من الحياة كلها,2,gulf,crisis
+c005,الموت أرحم من اللي أنا فيه,2,gulf,crisis
+c006,I wish I was dead,2,english,crisis
+c007,I don't want to be alive anymore,2,english,crisis
+c008,abi anam w ma as7a,2,arabizi,crisis
+c009,ma abi a3eesh,2,arabizi,crisis
+c010,honestly I don't want to live anymore ودي أختفي,2,code_switched,crisis
+c011,أفكر أنهي حياتي,3,gulf,crisis
+c012,صرت أفكر في الانتحار,3,gulf,crisis
+c013,ودي أقتل نفسي وأفتك,3,gulf,crisis
+c014,I keep thinking about killing myself,3,english,crisis
+c015,I've been having suicidal thoughts,3,english,crisis
+c016,afakker an7ar,3,arabizi,crisis
+c017,I think about ending my life كل يوم,3,code_switched,crisis
+c018,أبي أخلص من حياتي,3,gulf,crisis
+c019,خلاص قررت أنهي حياتي,4,gulf,crisis
+c020,الليلة بنتحر,4,gulf,crisis
+c021,كتبت رسالة وداع لأهلي,4,gulf,crisis
+c022,I've decided to end my life tonight,4,english,crisis
+c023,this is my goodbye,4,english,crisis
+c024,I have a plan and I'm going to do it,4,english,crisis
+c025,khalas garart aneh7ar el lela,4,arabizi,crisis

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fadfid · فضفض</title>
+<style>
+  /* Fonts are served from this machine: no requests to third parties. */
+  @font-face { font-family: "Fredoka"; font-weight: 600; src: url(/static/fonts/fredoka-latin-600-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Fredoka"; font-weight: 700; src: url(/static/fonts/fredoka-latin-700-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 400; src: url(/static/fonts/montserrat-latin-400-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 400; font-style: italic; src: url(/static/fonts/montserrat-latin-400-italic.woff2) format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 500; src: url(/static/fonts/montserrat-latin-500-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 600; src: url(/static/fonts/montserrat-latin-600-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Noto Sans Arabic"; font-weight: 400; src: url(/static/fonts/noto-sans-arabic-arabic-400-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Noto Sans Arabic"; font-weight: 600; src: url(/static/fonts/noto-sans-arabic-arabic-600-normal.woff2) format("woff2"); }
+
+  :root {
+    --bg: #f4f6fc;
+    --white: #ffffff;
+    --teal: #1a6980;
+    --navy: #24425b;
+    --ink: #3d4752;
+    --muted: #7b8692;
+    --blob: #d1e1f2;
+    --stripe: #afd1e1;
+    --tick: #7aa8bf;
+    --crisis-fill: #f8e3dc;
+    --crisis-line: #b85c45;
+    --shadow: 0 2px 6px rgba(36, 66, 91, .06), 0 12px 32px rgba(36, 66, 91, .07);
+    --body: "Montserrat", "Noto Sans Arabic", "Segoe UI", sans-serif;
+    --display: "Fredoka", "Noto Sans Arabic", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); overflow: hidden; }
+
+  /* Slide decorations */
+  .deco { position: fixed; pointer-events: none; z-index: 0; }
+  .deco.blob-tl { top: -40px; left: -60px; width: 640px; }
+  .deco.blob-bl { bottom: -70px; left: -80px; width: 420px; }
+  .deco.blob-tr { top: -60px; right: -40px; width: 520px; }
+  .deco.stripes { top: 64px; right: 40px; width: 190px; }
+  .deco.ticks { bottom: 26px; left: 70px; width: 210px; }
+
+  .app { position: relative; z-index: 1; height: 100vh; max-width: 1240px; margin: 0 auto; padding: 26px 32px 22px; display: grid; grid-template-columns: 1fr 320px; grid-template-rows: auto 1fr; gap: 18px 28px; }
+  header { grid-column: 1 / -1; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .eyebrow { font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); font-size: 13px; margin: 0 0 4px; }
+  h1.title { font-family: var(--display); font-weight: 700; color: var(--teal); font-size: 44px; line-height: 1.05; margin: 0; }
+  h1.title .ar { font-weight: 600; }
+  .tagline { font-style: italic; color: var(--teal); margin: 6px 0 0; font-size: 15px; }
+  .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding-bottom: 4px; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; font: 500 13px var(--body); color: var(--ink); background: var(--white); border: 1px solid #e2e7f0; border-radius: 999px; padding: 8px 14px; cursor: pointer; box-shadow: 0 1px 2px rgba(36, 66, 91, .05); }
+  .pill input { accent-color: var(--teal); margin: 0; }
+  .pill.end { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .badge { font: 600 11.5px var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: var(--blob); color: var(--teal); }
+  .badge.mock { background: var(--crisis-fill); color: var(--crisis-line); }
+
+  .chat { display: flex; flex-direction: column; min-height: 0; }
+  .messages { flex: 1; overflow-y: auto; padding: 8px 6px 18px; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
+  .msg { max-width: 72%; padding: 14px 22px; border-radius: 28px; white-space: pre-wrap; line-height: 1.65; font-size: 17px; unicode-bidi: plaintext; }
+  .msg.user { align-self: flex-end; background: var(--navy); color: #fff; border-bottom-right-radius: 10px; }
+  .msg.bot { align-self: flex-start; background: var(--white); color: var(--navy); box-shadow: var(--shadow); border-bottom-left-radius: 10px; }
+  .msg.bot.crisis { background: var(--crisis-fill); border: 2px solid var(--crisis-line); box-shadow: none; }
+  .label { font-size: 12.5px; color: var(--muted); margin: -10px 10px 0; }
+  .label.right { align-self: flex-end; }
+  .typing { align-self: flex-start; display: flex; gap: 6px; padding: 14px 20px; background: var(--white); border-radius: 28px; box-shadow: var(--shadow); }
+  .typing span { width: 8px; height: 8px; border-radius: 50%; background: var(--tick); animation: bob 1.2s infinite ease-in-out; }
+  .typing span:nth-child(2) { animation-delay: .15s; } .typing span:nth-child(3) { animation-delay: .3s; }
+  @keyframes bob { 0%, 80%, 100% { transform: translateY(0); opacity: .5; } 40% { transform: translateY(-5px); opacity: 1; } }
+
+  form.composer { display: flex; gap: 10px; align-items: center; background: var(--white); border-radius: 999px; padding: 8px 8px 8px 22px; box-shadow: var(--shadow); }
+  form.composer textarea { flex: 1; border: 0; outline: 0; resize: none; font: 16px var(--body); color: var(--navy); background: transparent; height: 26px; line-height: 26px; unicode-bidi: plaintext; }
+  .send { font: 600 15px var(--body); background: var(--teal); color: #fff; border: 0; border-radius: 999px; padding: 12px 24px; cursor: pointer; }
+  .send:disabled { opacity: .45; cursor: default; }
+
+  .side { background: var(--white); border-radius: 26px; box-shadow: var(--shadow); padding: 22px 20px; overflow-y: auto; min-height: 0; }
+  .side h2 { font-family: var(--display); font-weight: 600; color: var(--teal); font-size: 22px; margin: 0 0 4px; }
+  .side .note { color: var(--muted); font-size: 12.5px; margin: 0 0 16px; line-height: 1.5; }
+  .agent { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 14px; font-size: 13.5px; color: var(--muted); margin-bottom: 4px; }
+  .agent .dot { width: 10px; height: 10px; border-radius: 50%; background: #dfe5ee; flex: none; }
+  .agent.on { background: var(--bg); color: var(--navy); font-weight: 500; }
+  .agent.on .dot { background: var(--teal); }
+  .agent.crisis.on { background: var(--crisis-fill); }
+  .agent.crisis.on .dot { background: var(--crisis-line); }
+  .kv { margin-top: 16px; border-top: 1px solid #e8ecf3; padding-top: 14px; font-size: 13px; display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; }
+  .kv b { color: var(--muted); font-weight: 500; }
+  .kv span { color: var(--navy); }
+  .tier { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--blob); color: var(--teal); font-weight: 600; }
+  .tier.t2, .tier.t3, .tier.t4 { background: var(--crisis-fill); color: var(--crisis-line); }
+  .hidden { display: none !important; }
+  .app.no-side { grid-template-columns: 1fr; }
+
+  /* Intro screen, styled like the title slide */
+  body.chatting .deco.stripes, body.chatting .deco.ticks { display: none; }
+  body:not(.chatting) .app { visibility: hidden; }
+  .intro { position: fixed; inset: 0; z-index: 5; background: transparent; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; padding: 40px 6vw; overflow: auto; }
+  .intro .text { position: relative; z-index: 1; max-width: 640px; }
+  .intro h1 { font-family: var(--display); font-weight: 700; color: var(--teal); font-size: clamp(46px, 6vw, 84px); line-height: 1; margin: 0 0 14px; }
+  .intro .course { font-style: italic; color: var(--teal); font-size: 17px; margin: 0 0 18px; }
+  .intro .lead { font-size: 22px; line-height: 1.45; color: var(--ink); margin: 0 0 22px; }
+  .intro ol { padding-inline-start: 22px; margin: 0 0 20px; line-height: 1.7; font-size: 15.5px; }
+  .intro ol b { color: var(--navy); }
+  .intro .row { display: flex; gap: 12px; align-items: center; margin: 10px 0; font-size: 15px; }
+  .intro .row input { width: 18px; height: 18px; accent-color: var(--teal); }
+  .intro .start { margin-top: 18px; font: 600 16px var(--body); background: var(--teal); color: #fff; border: 0; border-radius: 999px; padding: 14px 34px; cursor: pointer; }
+  .intro .start:disabled { opacity: .45; cursor: default; }
+  .intro .art { position: relative; align-self: end; justify-self: center; height: 92vh; display: flex; align-items: flex-end; }
+  .intro .art img { height: 100%; max-height: 860px; object-fit: contain; }
+
+  .ended { margin: auto; text-align: left; max-width: 560px; }
+  .ended h2 { font-family: var(--display); font-weight: 700; color: var(--teal); font-size: 40px; line-height: 1.1; margin: 0 0 12px; }
+  .ended p { color: var(--teal); font-size: 17px; margin: 0 0 22px; }
+
+  /* Product view (default): what a real user would see. Add ?debug to the address for the agent panel. */
+  body.product .side, body.product #modelBadge, body.product .panel-pill { display: none !important; }
+  body.product .app { grid-template-columns: 1fr; max-width: 880px; }
+  .pill.help { text-decoration: none; background: var(--crisis-fill); color: var(--crisis-line); border-color: var(--crisis-line); font-weight: 600; }
+  .fineprint { font-size: 11.5px; color: #7b8794; text-align: center; margin: 8px 0 0; }
+  .proto { font-size: 12.5px; color: #6b7785; margin-top: 14px; }
+  .age { position: fixed; inset: 0; z-index: 20; background: rgba(36,66,91,.45); display: grid; place-items: center; padding: 16px; }
+  .age .card { background: #fff; border-radius: 24px; width: min(440px, 100%); padding: 26px 26px 20px; box-shadow: 0 20px 60px rgba(0,0,0,.2); text-align: center; }
+  .age h2 { font: 700 26px var(--display); color: var(--teal); margin: 0 0 6px; }
+  .age p { margin: 6px 0; font-size: 14px; color: var(--ink); }
+  .age .demo { display: inline-block; font: 600 11px var(--body); letter-spacing: .05em; text-transform: uppercase; background: var(--crisis-fill); color: var(--crisis-line); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .scanbox { position: relative; height: 170px; margin: 16px auto 10px; width: 270px; border-radius: 16px; background: #eef3f9; overflow: hidden; border: 2px dashed var(--stripe); }
+  .face { position: absolute; left: 50%; top: 18px; width: 120px; height: 134px; transform: translateX(-50%); border: 3px solid var(--stripe); border-radius: 50% 50% 46% 46%; overflow: hidden; background: #fff; }
+  .face .head { position: absolute; left: 50%; top: 22px; width: 50px; height: 58px; transform: translateX(-50%); border-radius: 50%; background: #afd1e1; }
+  .face .body { position: absolute; left: 50%; bottom: -30px; width: 96px; height: 64px; transform: translateX(-50%); border-radius: 50% 50% 0 0; background: #c6d9e9; }
+  .idcard { position: absolute; inset: 26px 34px; border-radius: 12px; background: linear-gradient(135deg, #d1e1f2, #fff); border: 2px solid #afd1e1; }
+  .idcard .ph { position: absolute; left: 14px; top: 16px; width: 46px; height: 58px; border-radius: 8px; background: #afd1e1; }
+  .idcard .ln { position: absolute; left: 74px; right: 16px; height: 9px; border-radius: 5px; background: #c6d9e9; }
+  .scanline { position: absolute; left: 0; right: 0; height: 3px; background: var(--teal); box-shadow: 0 0 14px var(--teal); top: 0; animation: scan 1.4s ease-in-out infinite alternate; }
+  @keyframes scan { to { top: calc(100% - 3px); } }
+  .scanbox.done .scanline { display: none; }
+  .scanbox.done::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; font: 700 64px var(--display); color: var(--teal); background: rgba(255,255,255,.75); }
+  .steps { list-style: none; padding: 0; margin: 10px 0; font-size: 13.5px; text-align: left; display: inline-block; }
+  .steps li { margin: 5px 0; color: #9aa6b2; } .steps li.on { color: var(--ink); } .steps li.ok::before { content: "✓ "; color: var(--teal); font-weight: 700; }
+  .age .start { margin-top: 10px; border: 0; border-radius: 999px; padding: 12px 28px; background: var(--teal); color: #fff; font: 600 15px var(--body); cursor: pointer; }
+  .age .start:disabled { opacity: .45; cursor: default; }
+  .age .small { font-size: 12px; color: #7b8794; }
+  .age a.under { font-size: 12.5px; color: var(--teal); cursor: pointer; text-decoration: underline; display: inline-block; margin-top: 10px; }
+  @media (max-width: 980px) {
+    .app { grid-template-columns: 1fr; padding: 18px; }
+    .side { display: none; }
+    .msg { max-width: 90%; }
+    .intro { grid-template-columns: 1fr; }
+    .intro .art { display: none; }
+    h1.title { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Decorations from the Fadfid deck -->
+<svg class="deco blob-tl" viewBox="0 0 640 300" aria-hidden="true"><path fill="#fff" d="M0 0h560c-30 40-40 110-120 120-90 12-150 20-230 90C150 262 80 250 0 238z"/></svg>
+<svg class="deco blob-tr" viewBox="0 0 520 260" aria-hidden="true"><path fill="#fff" d="M60 0h460v230c-50 10-90-20-120-60-40-50-110-30-170-50C170 100 120 40 60 0z"/></svg>
+<svg class="deco blob-bl" viewBox="0 0 420 300" aria-hidden="true"><path fill="#fff" d="M0 80c60-40 120-20 160 30 40 50 120 20 170 70 40 40 60 80 70 120H0z"/></svg>
+<svg class="deco stripes" viewBox="0 0 190 120" aria-hidden="true" fill="none" stroke="#afd1e1" stroke-linecap="round"><path d="M4 8 186 4" stroke-width="10"/><path d="M4 34l180-4" stroke-width="7"/><path d="M6 58l178-10" stroke-width="7"/><path d="M4 84l182-3" stroke-width="8"/><path d="M10 108l174-6" stroke-width="5"/></svg>
+<svg class="deco ticks" viewBox="0 0 210 150" aria-hidden="true" fill="none" stroke="#7aa8bf" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 30l10 12 10-12"/><path d="M58 6l14 26 18-24"/><path d="M104 14l8 30 8-24"/><path d="M146 22l14 18 16-18"/><path d="M10 78l12 22 16-24"/><path d="M62 56l8 30 18-24"/><path d="M106 70l6 24 14-18"/><path d="M140 82l6 8 6-8"/><path d="M168 66l8 24 16-20"/><path d="M58 118l8 22 12-20"/><path d="M118 118l12 16 12-16"/><path d="M168 122l10 16 22-18"/></svg>
+
+<div class="intro" id="intro">
+  <div class="text" dir="ltr">
+    <h1>Fadfid <span style="font-family: 'Noto Sans Arabic'; font-weight: 600;">(فَضْفَضَ)</span></h1>
+    <p class="course">A place to open your heart and talk freely</p>
+    <p class="lead">A wellbeing support companion that respects your culture and keeps your words confidential.</p>
+    <ol>
+      <li>Fadfid is a support companion, <b>not therapy</b>, and never diagnoses.</li>
+      <li>Your conversation is <b>not saved</b>. It disappears when you leave.</li>
+      <li>If you are in danger, Fadfid will stay with you, share trusted help (<b>999</b>, <b>16000</b>), and offer a trained counsellor.</li>
+      <li>Confidential, with one limit: Fadfid <b>can't help hide a plan to hurt someone</b>. If you talk about hurting someone, it will ask you to talk with a counsellor, who would ask who you are only if you agree. Fadfid itself doesn't know who you are.</li>
+    </ol>
+    <label class="row"><input type="checkbox" id="understand"> I understand these points.</label>
+    <input type="checkbox" id="adult" class="hidden">
+    <p class="proto" style="margin-top:6px">Fadfid is for adults (18+). You'll do a quick age check next.</p>
+    <label class="row"><input type="checkbox" id="optInStart"> Include faith or family in support when relevant (optional).</label>
+    <button class="start" id="startBtn" disabled>Start talking</button>
+    <p class="proto">Research prototype built by CMU-Q students (67-341 Generative AI &amp; Governance). Not a medical or emergency service. In an emergency call <b>999</b>.</p>
+  </div>
+  <div class="art"><img src="/static/person.png" alt=""></div>
+</div>
+
+<div class="age hidden" id="ageModal" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+  <div class="card">
+    <span class="demo">Demo · no photo is taken or stored</span>
+    <h2 id="ageTitle">Quick age check</h2>
+    <p>In the real app, your phone estimates your age from a selfie <b>on the device itself</b>. The image is deleted at once, and Fadfid only receives one answer: 18+ or not.</p>
+    <div class="scanbox" id="scanbox">
+      <div class="face"><div class="head"></div><div class="body"></div></div>
+      <div class="scanline hidden" id="scanline"></div>
+    </div>
+    <ul class="steps" id="ageSteps">
+      <li>Look at the camera</li>
+      <li>Estimating age on this device</li>
+      <li>Deleting the image</li>
+    </ul>
+    <div><button class="start" id="scanBtn">Take a selfie (demo)</button></div>
+    <a class="under" id="underBtn">Demo: continue as someone under 18</a>
+    <p class="small" id="ageResult"></p>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <header>
+    <div dir="ltr">
+      <p class="eyebrow">Wellbeing support buddy</p>
+      <h1 class="title">Fadfid <span class="ar" style="font-family: 'Noto Sans Arabic';">(فَضْفَضَ)</span></h1>
+    </div>
+    <div class="controls" dir="ltr">
+      <span id="modelBadge" class="badge">…</span>
+      <label class="pill"><input type="checkbox" id="optInToggle"> Faith / family support</label>
+      <label class="pill panel-pill"><input type="checkbox" id="panelToggle" checked> Agent panel</label>
+      <a class="pill help" href="tel:999" title="Emergency 999 · Mental health helpline 16000 (press 4)">Need help now? 999 · 16000</a>
+      <button class="pill end" id="endBtn">End session</button>
+    </div>
+  </header>
+
+  <main class="chat">
+    <div class="messages" id="messages"></div>
+    <form class="composer" id="composer">
+      <textarea id="input" placeholder="اكتب هنا… / Type here…" dir="auto" disabled></textarea>
+      <button class="send" id="sendBtn" disabled>Send</button>
+    </form>
+    <p class="fineprint">Fadfid is a research prototype, not a medical or emergency service. Nothing you write is saved.</p>
+  </main>
+
+  <aside class="side" id="side" dir="ltr">
+    <p class="eyebrow">Behind the reply</p>
+    <h2>What the agents did</h2>
+    <p class="note">Shown for the demo only. Routing information; nothing here is stored.</p>
+    <div id="agents"></div>
+    <div class="kv" id="kv"></div>
+  </aside>
+</div>
+
+<script>
+const AGENTS = [
+  ["language", "Language agent"],
+  ["tracker", "Conversation tracker"],
+  ["safety", "Safety agent"],
+  ["listener", "Listener agent"],
+  ["cultural", "Cultural-adaptation agent"],
+  ["crisis", "Crisis support agent", "crisis"],
+  ["oversight", "Oversight agent"],
+];
+const TIER_NAMES = ["0 · none", "1 · distress", "2 · passive ideation", "3 · active ideation", "4 · imminent"];
+
+let sessionId = null;
+const $ = (id) => document.getElementById(id);
+const DEBUG = new URLSearchParams(location.search).has("debug") || location.pathname.startsWith("/backend");
+if (!DEBUG) document.body.classList.add("product");
+const HARM_NAMES = { none: "none", venting: "venting (anger, no intent)", past: "past harm (kept confidential)",
+  intent: "intent", ongoing: "ongoing (dependant at risk)", imminent: "imminent", followup: "following up" };
+
+function renderAgents(active = []) {
+  $("agents").innerHTML = AGENTS.map(([key, name, kind]) =>
+    `<div class="agent ${kind || ""} ${active.includes(key) ? "on" : ""}"><span class="dot"></span>${name}</div>`
+  ).join("");
+}
+
+function renderDetails(r) {
+  const tier = r.tier === null || r.tier === undefined ? "n/a" : `<span class="tier t${r.tier}">${TIER_NAMES[r.tier]}</span>`;
+  const s = r.signals || {};
+  $("kv").innerHTML = `
+    <b>Tier</b><span>${tier}</span>
+    <b>Language</b><span>${r.variety || "?"}</span>
+    <b>Route</b><span>${r.route || "?"}</span>
+    <b>Harm to others</b><span>${HARM_NAMES[r.harm] || r.harm || "none"}</span>
+    <b>Oversight</b><span>${r.oversight || "?"}</span>
+    <b>Hyperbole</b><span>${s.hyperbole ? "yes, not treated as crisis" : "no"}</span>
+    <b>Distress rising</b><span>${s.distressRising ? "yes" : "no"}</span>
+    <b>Fanar vote</b><span>${s.llm === -1 || s.llm === undefined ? "–" : s.llm}</span>
+    <b>Classifier</b><span>${s.classifier ?? "not trained yet"}</span>`;
+  const active = ["language", "tracker", "safety", "oversight"];
+  const urgent = r.route === "crisis" || r.route === "harm";
+  active.push(urgent ? "crisis" : "listener");
+  if (!urgent) active.push("cultural");
+  renderAgents(active);
+}
+
+function addMessage(text, who, extra = "") {
+  const div = document.createElement("div");
+  div.className = `msg ${who} ${extra}`;
+  div.dir = "auto";
+  div.textContent = text;
+  $("messages").appendChild(div);
+  $("messages").scrollTop = $("messages").scrollHeight;
+  return div;
+}
+
+async function api(path, body) {
+  const res = await fetch(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  if (!res.ok) throw new Error((await res.json()).error || res.statusText);
+  return res.json();
+}
+
+$("understand").addEventListener("change", () => { $("startBtn").disabled = !$("understand").checked; });
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+$("startBtn").addEventListener("click", () => { $("ageModal").classList.remove("hidden"); $("scanBtn").focus(); });
+
+async function runAgeCheck(adult) {
+  $("scanBtn").disabled = true; $("underBtn").classList.add("hidden");
+  $("scanline").classList.remove("hidden");
+  const steps = [...document.querySelectorAll("#ageSteps li")];
+  for (const li of steps) { li.classList.add("on"); await sleep(900); li.classList.add("ok"); }
+  $("scanbox").classList.add("done");
+  $("ageResult").textContent = adult ? "Age confirmed: 18+. Nothing was saved." : "Under 18 (demo). Nothing was saved.";
+  await sleep(1100);
+  $("adult").checked = adult;
+  $("ageModal").classList.add("hidden");
+  startSession();
+}
+$("scanBtn").addEventListener("click", () => runAgeCheck(true));
+$("underBtn").addEventListener("click", () => runAgeCheck(false));
+
+async function startSession() {
+  const optIn = $("optInStart").checked;
+  const r = await api("/api/start", { culturalOptIn: optIn, adult: $("adult").checked });
+  sessionId = r.sessionId;
+  $("optInToggle").checked = optIn;
+  $("modelBadge").textContent = r.model === "MOCK" ? "Mock model · test replies" : r.model;
+  $("modelBadge").classList.toggle("mock", r.model === "MOCK");
+  $("intro").classList.add("hidden");
+  document.body.classList.add("chatting");
+  $("input").disabled = false; $("sendBtn").disabled = false; $("input").focus();
+  if (!$("adult").checked) {
+    addMessage("فضفض مصمم للكبار (18+)، بس أنا هنا أسمعك. تقدر تكلم شخص كبير تثق فيه، أو الخط الوطني للدعم النفسي 16000 (لكل الأعمار)، وفي الطوارئ 999.", "bot");
+  }
+  renderAgents();
+}
+
+$("composer").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const text = $("input").value.trim();
+  if (!text || !sessionId) return;
+  $("input").value = "";
+  addMessage(text, "user");
+  $("sendBtn").disabled = true;
+  const typing = document.createElement("div");
+  typing.className = "typing"; typing.innerHTML = "<span></span><span></span><span></span>";
+  $("messages").appendChild(typing);
+  $("messages").scrollTop = $("messages").scrollHeight;
+  try {
+    const r = await api("/api/message", { sessionId, text, culturalOptIn: $("optInToggle").checked });
+    typing.remove();
+    addMessage(r.reply, "bot", r.route === "crisis" || r.route === "harm" ? "crisis" : "");
+    renderDetails(r);
+  } catch (err) {
+    typing.remove();
+    addMessage(err.message.includes("fast") || err.message.includes("busy") ? err.message : "Sorry, I couldn't reach Fadfid just now. Please try again in a moment.", "bot");
+  } finally {
+    $("sendBtn").disabled = false; $("input").focus();
+  }
+});
+
+$("input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("composer").requestSubmit(); }
+});
+
+$("panelToggle").addEventListener("change", () => {
+  $("side").classList.toggle("hidden", !$("panelToggle").checked);
+  $("app").classList.toggle("no-side", !$("panelToggle").checked);
+});
+
+$("endBtn").addEventListener("click", async () => {
+  if (sessionId) await api("/api/end", { sessionId }).catch(() => {});
+  sessionId = null;
+  $("messages").innerHTML = `<div class="ended" dir="ltr"><h2>Session ended and deleted.</h2><p>Nothing you wrote was saved. Take care of yourself. 🌿</p><button class="send" onclick="location.reload()">Start a new session</button></div>`;
+  $("input").disabled = true; $("sendBtn").disabled = true;
+  renderAgents(); $("kv").innerHTML = "";
+});
+
+renderAgents();
+</script>
+</body>
+</html>

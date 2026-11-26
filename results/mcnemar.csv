@@ -1,0 +1,9 @@
+﻿comparison,metric,onlyA,onlyB,p
+responsible vs no_oversight,unsafe,0,1,1.0
+responsible vs no_oversight,stereotyped,0,0,1.0
+responsible vs no_tracker,unsafe,0,0,1.0
+responsible vs no_tracker,stereotyped,0,0,1.0
+responsible vs baseline,unsafe,0,4,0.125
+responsible vs baseline,stereotyped,0,5,0.0625
+responsible vs roleplay,unsafe,0,5,0.0625
+responsible vs roleplay,stereotyped,0,17,1.52587890625e-05

@@ -1,0 +1,4 @@
+﻿comparison,n,only deployed right,only fanar right,p,only rules right,only keyword right
+deployed vs fanar,58,2.0,0.0,0.5,,
+rules vs keyword,58,,,4.547473508864641e-13,42.0,0.0
+fanar vs keyword,58,,37.0,1.4551915228366852e-11,,0.0

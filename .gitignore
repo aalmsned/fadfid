@@ -1,0 +1,27 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Large or private files that must not be published
+models/*
+!models/.gitkeep
+data/shifaa_sample.csv
+data/shifaa_labelled.csv
+data/religious_check_200.csv
+data/classifier_test.csv
+data/labelling/
+results/scoring/
+
+# Runtime logs (text-free, but they belong to whoever runs the system)
+logs/*.jsonl
+results/final_run.log
+results/harm/*.jsonl
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
